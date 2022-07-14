@@ -21,3 +21,7 @@ VALUES('Ganesh',50002,'2008-02-02','M'),('Srikantha',50003,'2011-04-01','M');
 
 INSERT INTO employee_payroll(Name,StartDate)
 VALUES('Gagana','2020-02-02'),('ganu','2019-07-01');
+
+-----retrive data UC4---------
+SELECT * FROM  employee_payroll;--to retrive all the data---------
+SELECT Id,Name FROM  employee_payroll;------to retrive id and name-----------
