@@ -14,3 +14,10 @@ create Table employee_payroll(
 	  StartDate datetime 
 
 );
+
+---------to insert data into the table UC3--------------
+INSERT INTO employee_payroll
+VALUES('Ganesh',50002,'2008-02-02','M'),('Srikantha',50003,'2011-04-01','M');
+
+INSERT INTO employee_payroll(Name,StartDate)
+VALUES('Gagana','2020-02-02'),('ganu','2019-07-01');
