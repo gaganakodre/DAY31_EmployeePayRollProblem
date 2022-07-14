@@ -26,6 +26,9 @@ VALUES('Gagana','2020-02-02'),('ganu','2019-07-01');
 SELECT * FROM  employee_payroll;--to retrive all the data---------
 SELECT Id,Name FROM  employee_payroll;------to retrive id and name-----------
 
+----------------UC5 retrive according to the start date range-------------
+SELECT * FROM  employee_payroll where StartDate between CAST('2019-04-01' as date) and GETDATE();
+
 ------------UC6-we have to add the other column as a gender tocexisting table------------
 ALTER TABLE employee_payroll
 ADD Gender char(1); 
