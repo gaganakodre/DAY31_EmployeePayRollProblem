@@ -35,3 +35,30 @@ ADD Gender char(1);
 UPDATE employee_payroll set Gender='F';
 UPDATE employee_payroll set Salary=60000 where Name='Gowri';
 UPDATE employee_payroll set Salary=60001,StartDate=getdate() where Name='Gowri';
+UPDATE employee_payroll set Salary=60001 where Name='Gagana';
+UPDATE employee_payroll set Salary=60001 where Name='ganu';
+------------UC7-sum,avrage,min,max,count-------------------
+SELECT * FROM  employee_payroll;
+SELECT SUM(Salary) as TotalSalary from employee_payroll;
+SELECT avg(Salary) as AvergeSalary from employee_payroll;
+SELECT  MIN(Salary) as MINIMUMSalary from employee_payroll;
+SELECT MAX(Salary) as MaximumSalary from employee_payroll;
+SELECT COUNT(Salary) from employee_payroll;
+
+------TO GET THE MINIMUM SALARY WITH MINIMUM SALARY------------
+SELECT * FROM employee_payroll Salary where
+ Salary=(select min(Salary)as MINIMUMSALARY FROM employee_payroll);
+
+ SELECT * FROM employee_payroll Salary where
+ Salary=(select MAX(Salary)as MAXIMUMSALARY FROM employee_payroll);
+
+ SELECT Name,StartDate FROM employee_payroll Salary where
+ Salary=(select MAX(Salary)as MAXIMUMSALARY FROM employee_payroll);
+
+ --------TO count the male and female separetly to all the employee-------
+ SELECT COUNT(Salary)  from employee_payroll group by gender;
+ -----------we aslo displaying the gender column-------------
+ SELECT COUNT(Salary) as generCount,gender from employee_payroll group by gender;
+  --------TO count the male and female separetly to particular the employee-------
+
+
