@@ -60,5 +60,15 @@ SELECT * FROM employee_payroll Salary where
  -----------we aslo displaying the gender column-------------
  SELECT COUNT(Salary) as generCount,gender from employee_payroll group by gender;
   --------TO count the male and female separetly to particular the employee-------
+--------UC8-Extending the table bye by adding dept,phonr,address columns---------
+ALTER TABLE employee_payroll
+ADD PhoneNumber bigint;
+ --while adding not null we have to pass default values because we are altering it----------
+ALTER TABLE employee_payroll
+ADD Department varchar(200)NOT NULL default'HR';
+ 
+select * from employee_payroll;
 
+ALTER TABLE employee_payroll
+ADD Address varchar(200) default 'Bengaluru';
 
