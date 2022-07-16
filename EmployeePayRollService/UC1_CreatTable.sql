@@ -27,6 +27,7 @@ SELECT * FROM  employee_payroll;--to retrive all the data---------
 SELECT Id,Name FROM  employee_payroll;------to retrive id and name-----------
 
 ----------------UC5 retrive according to the start date range-------------
+----------CAST METHOD USED FOR CONVERTING VARIALBLE TO THE DATA TYPE-----------
 SELECT * FROM  employee_payroll where StartDate between CAST('2019-04-01' as date) and GETDATE();
 
 ------------UC6-we have to add the other column as a gender tocexisting table------------
