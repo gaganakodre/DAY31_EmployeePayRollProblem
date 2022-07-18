@@ -87,3 +87,18 @@ UPDATE employee_payroll set Department='Sales', Address ='Bengaluru',BasicSalary
 
 INSERT INTO employee_payroll(Name,Salary,StartDate,Gender,PhoneNumber,Department,Address,BasicSalary,Deductions,TaxablePay,IncomeTax,NetPay)
 VALUES('Ganesh',50002,'2008-02-02','M',5436787654,'Marketing','Mysore',4567860,200,3000,8765,600000);
+
+-------UC11-creating the new tables for many to many relation-----------------
+SELECT* FROM  EmployeeDept;
+CREATE TABLE EmployeeDept(
+DeptId int identity(1,1) PRIMARY KEY,
+
+EmployeeID int FOREIGN KEY REFERENCES employee_payroll(Id));
+SELECT* FROM  EmployeeDept;
+INSERT INTO EmployeeDept(EmployeeID) values(1);
+INSERT INTO EmployeeDept(EmployeeID) values(2);
+INSERT INTO EmployeeDept(EmployeeID) values(3);
+INSERT INTO EmployeeDept(EmployeeID) values(4);
+INSERT INTO EmployeeDept(EmployeeID) values(5);
+INSERT INTO EmployeeDept(EmployeeID) values(6);
+INSERT INTO EmployeeDept(EmployeeID) values(7);
