@@ -75,3 +75,15 @@ ADD Address varchar(200) default 'Bengaluru';
 
 -------------UC9 Extend the employee table----------------
 ALTER TABLE employee_payroll ADD BasicSalary float,Deductions float,TaxablePay float,IncomeTax float,NetPay float;
+--------------UC10 ability to make same employee for the two different department-----------
+SELECT* FROM  employee_payroll;
+UPDATE employee_payroll set Department='Sales', Address ='Bengaluru',BasicSalary=456786, Deductions=200,TaxablePay=3000 where Name='Gowri';
+UPDATE employee_payroll set Department='Marketing', Address ='Bengaluru',BasicSalary=456796, Deductions=300,TaxablePay=2000 where Name='Shree';
+UPDATE employee_payroll set Department='HR',Address ='Bengaluru',BasicSalary=356786, Deductions=270,TaxablePay=3000 where Name='Gagana';
+UPDATE employee_payroll set Department='Marketing',Address ='Bengaluru',BasicSalary=459786, Deductions=280,TaxablePay=3000 where Name='ganu';
+UPDATE employee_payroll set Department='Sales', Address ='Bengaluru',BasicSalary=456786, Deductions=200,TaxablePay=3000 where Name='Ganesh';
+UPDATE employee_payroll set Department='Sales', Address ='Bengaluru',BasicSalary=456786, Deductions=200,TaxablePay=3000 where Name='Srikantha';
+-----INSERTING ONE MORE ROW WITH SAME EMPLOYEE DETAILS-----------------
+
+INSERT INTO employee_payroll(Name,Salary,StartDate,Gender,PhoneNumber,Department,Address,BasicSalary,Deductions,TaxablePay,IncomeTax,NetPay)
+VALUES('Ganesh',50002,'2008-02-02','M',5436787654,'Marketing','Mysore',4567860,200,3000,8765,600000);
