@@ -87,7 +87,7 @@ UPDATE employee_payroll set Department='Sales', Address ='Bengaluru',BasicSalary
 
 INSERT INTO employee_payroll(Name,Salary,StartDate,Gender,PhoneNumber,Department,Address,BasicSalary,Deductions,TaxablePay,IncomeTax,NetPay)
 VALUES('Ganesh',50002,'2008-02-02','M',5436787654,'Marketing','Mysore',4567860,200,3000,8765,600000);
-
+select * from  employee_payroll where Name='Ganesh';
 -------UC11-creating the new tables for many to many relation-----------------
 SELECT* FROM  EmployeeDept;
 CREATE TABLE EmployeeDept(
@@ -102,3 +102,68 @@ INSERT INTO EmployeeDept(EmployeeID) values(4);
 INSERT INTO EmployeeDept(EmployeeID) values(5);
 INSERT INTO EmployeeDept(EmployeeID) values(6);
 INSERT INTO EmployeeDept(EmployeeID) values(7);
+
+create table payroll
+(
+	Payroll_ID int not null primary key,
+	Basic_Pay money not null,
+	Deduction float not null,
+	Taxable real, 
+	Income_Tax float,
+	Netpay real, 
+)
+
+insert into payroll values
+	(111,400000,200.20,2000,50000,25000),
+	(112,500000,600.20,3000,70000,55000),
+	(113,500000,600.20,3000,70000,55000),
+	(114,700000,9900.10,4000,80000,56000)
+
+select *from payroll
+
+create table Company
+(
+	Company_ID int primary key,
+	ComapnyName varchar(20)
+)
+
+insert into Company values
+	(501,'Infosys'),
+	(502,'Bridgelab'),
+	(503,'TCS'),
+	(504,'Wipro')
+
+select * from Company
+
+create table Employee
+(
+	Employee_ID int not null primary key,
+	Name varchar(20) not null,
+	Gender varchar(1) not null,
+	Basic_pay money not null,
+	StartDate date not null,
+	PhoneNumber varchar(10),
+	Addres varchar(60),
+	CompanyEmployeeID int FOREIGN KEY REFERENCES Company(Company_ID),
+	PayrolID int FOREIGN KEY  REFERENCES Payroll(Payroll_ID)
+)
+
+insert into Employee values
+	(001,'Gowri','F',700000,'2019-07-13','7894561230','Badravathi',501,111),
+	(002,'Gagana','F',800000,'2020-08-05','8975833278','Shivamoga',502,112),
+	(003,'Johnny','M',600000,'2019-08-09','8874563210','Davanagere',503,113),
+	(004,'Prakash','M',900000,'2018-07-05','8638527410','Haveri',504,114);
+
+select * from Employee
+
+-----------UC12-checking with UC-4,5,7----------
+SELECT* FROM  employee_payroll;
+
+
+
+SELECT SUM(Salary) as TotalSalary from employee_payroll;
+SELECT avg(Salary) as AvergeSalary from employee_payroll;
+SELECT  MIN(Salary) as MINIMUMSalary from employee_payroll;
+SELECT MAX(Salary) as MaximumSalary from employee_payroll;
+SELECT COUNT(Salary) from employee_payroll;
+
