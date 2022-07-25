@@ -89,19 +89,7 @@ INSERT INTO employee_payroll(Name,Salary,StartDate,Gender,PhoneNumber,Department
 VALUES('Ganesh',50002,'2008-02-02','M',5436787654,'Marketing','Mysore',4567860,200,3000,8765,600000);
 select * from  employee_payroll where Name='Ganesh';
 -------UC11-creating the new tables for many to many relation-----------------
-SELECT* FROM  EmployeeDept;
-CREATE TABLE EmployeeDept(
-DeptId int identity(1,1) PRIMARY KEY,
 
-EmployeeID int FOREIGN KEY REFERENCES employee_payroll(Id));
-SELECT* FROM  EmployeeDept;
-INSERT INTO EmployeeDept(EmployeeID) values(1);
-INSERT INTO EmployeeDept(EmployeeID) values(2);
-INSERT INTO EmployeeDept(EmployeeID) values(3);
-INSERT INTO EmployeeDept(EmployeeID) values(4);
-INSERT INTO EmployeeDept(EmployeeID) values(5);
-INSERT INTO EmployeeDept(EmployeeID) values(6);
-INSERT INTO EmployeeDept(EmployeeID) values(7);
 
 create table payroll
 (
@@ -156,14 +144,31 @@ insert into Employee values
 
 select * from Employee
 
+CREATE TABLE Department(
+DeptName VARCHAR(10),
+empId INT REFERENCES Employee(Employee_ID),
+deptId int PRIMARY KEY);
+
+insert into Department values
+	('HR',1,101),
+	('Marketing',2,102),
+	('Technical',3,103),
+	('IT',4,104)
+
+select * from Department
+
+--------------------UC12-------------------------------
+SELECT Employee.Employee_ID, Department,Depart Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+
+
+
 -----------UC12-checking with UC-4,5,7----------
 SELECT* FROM  Employee;
 
 
 
-SELECT SUM(Basic_pay) as TotalSalary from Employee;
-SELECT avg(Basic_pay) as AvergeSalary from Employee;
-SELECT  MIN(Basic_pay) as MINIMUMSalary from Employee;
-SELECT MAX(Basic_pay) as MaximumSalary from Employee;
-SELECT COUNT(Basic_pay)as countofemployee from Employee;
+
+
 
