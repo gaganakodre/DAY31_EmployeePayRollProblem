@@ -167,6 +167,11 @@ INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
 -----------UC12-checking with UC-4,5,7----------
 SELECT* FROM  Employee;
 
+SELECT Employee.Employee_ID,payroll.Basic_Pay,Employee.Name
+FROM Employee
+Inner join payroll on Employee.PayrolID=payroll.Payroll_ID where Employee.Name='Gowri' ;
+
+
 
 
 
